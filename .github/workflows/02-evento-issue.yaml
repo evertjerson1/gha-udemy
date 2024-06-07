@@ -4,6 +4,8 @@ name: 02 - Evento issue
 
 on:
   push:
+    paths-ignore:
+      - '*.md'
   issues:
     types: 
       - opened

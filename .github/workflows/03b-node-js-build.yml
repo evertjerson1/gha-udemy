@@ -9,10 +9,10 @@ jobs:
     bould:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4      #Se tiene que hacer checkput del codigo para poder executarlo, y este disponible en el runner que estamos ejecutando
-            - name: Use Node.js 20.x
-              uses: actions/setup-node@v4
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
               with:
-                    node-version: 20
+                node-version: 20
+                cache: 'npm'
             - run: npm ci
             - run: npm test

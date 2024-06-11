@@ -1,0 +1,18 @@
+#Usar una accion externa, se hace desde la parte de steps
+# https://github.com/marketplace/actions/checkout es para hacer el checkout, viene en la parte de abajo
+#https://github.com/marketplace/actions/setup-node-js-environment  configurar un entorno node.js
+name: 03b - build node application
+on:
+    push:
+        branches: [ "main"]
+jobs:
+    bould:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4      #Se tiene que hacer checkput del codigo para poder executarlo, y este disponible en el runner que estamos ejecutando
+            - name: Use Node.js 20.x
+              uses: actions/setup-node@v4
+              with:
+                    node-version: 20
+            - run: npm ci
+            - run: npm test
